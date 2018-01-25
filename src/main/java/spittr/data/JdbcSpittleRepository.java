@@ -11,8 +11,12 @@ import java.sql.SQLException;
 import java.util.List;
 @Repository
 public class JdbcSpittleRepository implements SpittleRepository {
-    @Autowired
     private JdbcOperations jdbc;
+    @Autowired
+    public void setJdbc(JdbcOperations jdbc) {
+        this.jdbc = jdbc;
+    }
+
     @Override
     public List<Spittle> findSpittles(long max, int count) {
         return jdbc.query("select id, message, created_at, latitude, longitude" +

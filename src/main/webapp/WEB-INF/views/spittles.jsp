@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <head>
@@ -36,6 +38,8 @@
                     <span class="spittleTime"><c:out value="${spittle.time}"/></span>
                     <span class="spittleLocation">(<c:out value="${spittle.latitude}"/>, <c:out
                             value="${spittle.longitude}"/>)</span>
+                    <s:url value="/spittles/${spittle.id}" var="view_url"/>
+                    <a href="${view_url}">view</a>
                 </div>
             </li>
         </c:forEach>
