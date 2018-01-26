@@ -20,5 +20,4 @@ public class SpitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
     protected String[] getServletMappings() {
         return new String[] { "/" };
     }
-
 }

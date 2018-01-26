@@ -16,7 +16,15 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Servlet Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/spittr/config/DataConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/spittr/config/RootConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/spittr/web/WebConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
@@ -67,5 +75,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:0.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.6.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-web:2.6" level="project" />
   </component>
 </module>

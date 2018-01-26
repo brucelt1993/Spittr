@@ -34,6 +34,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml:classmate:0.8.0" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.6.2" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.6.2" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-web:2.6" />
         </element>
       </element>
       <element id="directory" name="META-INF">
