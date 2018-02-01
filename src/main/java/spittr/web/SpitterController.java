@@ -21,9 +21,19 @@ public class SpitterController {
     public SpitterController(SpitterRepository spitterRepository) {
         this.spitterRepository = spitterRepository;
     }
-
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    /*@RequestMapping(value="/register", method=GET)
     public String showRegistrationForm() {
+        return "registerForm";
+    }*/
+    /**
+     * 使用spring表单标签后的RequestMapping
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String showRegistrationForm(Model model) {
+        //设置model的spitter的key,与表单commandName对应，否则不能正常渲染
+        model.addAttribute(new Spitter());
         return "registerForm";
     }
     @RequestMapping(value = "/register",method = RequestMethod.POST)
