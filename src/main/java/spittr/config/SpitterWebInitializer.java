@@ -4,6 +4,9 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 import spittr.web.WebConfig;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 public class SpitterWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
@@ -19,5 +22,16 @@ public class SpitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
+    }
+
+    /**
+     * 配置multipart处理的 servlet
+     * @param registration
+     */
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(
+                new MultipartConfigElement("E:\\temp", 2097152, 4194304, 0)
+        );
     }
 }

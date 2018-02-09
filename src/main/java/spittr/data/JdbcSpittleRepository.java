@@ -5,9 +5,11 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import spittr.Spittle;
+import spittr.web.DuplicateSpittleException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.DuplicateFormatFlagsException;
 import java.util.List;
 @Repository
 public class JdbcSpittleRepository implements SpittleRepository {

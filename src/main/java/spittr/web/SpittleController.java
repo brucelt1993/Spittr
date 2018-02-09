@@ -3,10 +3,7 @@ package spittr.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import spittr.Spittle;
 import spittr.data.SpittleRepository;
 
@@ -34,7 +31,12 @@ public class SpittleController {
 
     @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
     public String showSpittle(@PathVariable long spittleId, Model model) {
-        model.addAttribute(spittleRepository.findOne(spittleId));
+        Spittle spittle = spittleRepository.findOne(spittleId);
+        //抛出spittle没有找到的异常
+        if(spittle==null){
+            throw new SpittleNotFoundException();
+        }
+        model.addAttribute(spittle);
         return "spittle";
     }
 
@@ -43,5 +45,14 @@ public class SpittleController {
         spittleRepository.save(new Spittle(null, form.getMessage(), new Date(),
                 form.getLongitude(), form.getLatitude()));
         return "redirect:/spittles";
+    }
+
+    /**
+     * 处理出现DuplicateSpittleException异常的方法
+     * @return
+     */
+    @ExceptionHandler(DuplicateSpittleException.class)
+    public String handleDuplicateSpittle(){
+        return "error/duplicate";
     }
 }
